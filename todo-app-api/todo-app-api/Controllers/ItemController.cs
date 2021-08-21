@@ -33,7 +33,7 @@ namespace todo_app_api.Controllers
             }
         }
 
-        [HttpPost("addItem")]
+        [HttpPost("add")]
         public IActionResult AddItem(ItemDto.Add item)
         {
             try
