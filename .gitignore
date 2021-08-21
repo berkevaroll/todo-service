@@ -1,0 +1,10 @@
+
+todo-app-api/.vs/todo-app-api/v16/.suo
+todo-app-api/todo-app-api/bin/Debug/netcoreapp3.1/todo-app-api.dll
+todo-app-api/todo-app-api/bin/Debug/netcoreapp3.1/todo-app-api.pdb
+todo-app-api/todo-app-api/obj/Debug/netcoreapp3.1/todo-app-api.csproj.AssemblyReference.cache
+todo-app-api/todo-app-api/obj/Debug/netcoreapp3.1/todo-app-api.dll
+todo-app-api/todo-app-api/obj/Debug/netcoreapp3.1/todo-app-api.pdb
+*.pdb
+*.dll
+*.cache

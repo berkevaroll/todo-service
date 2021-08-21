@@ -31,5 +31,31 @@ namespace todo_app_api.Controllers
                 return BadRequest();
             }
         }
+
+        [HttpPost("Add")]
+        public IActionResult Add(ItemDto.Add item)
+        {
+            try
+            {
+                return Ok(_itemService.Add(item));
+            }
+            catch
+            {
+                return BadRequest();
+            }
+        }
+
+        [HttpPost("Update")]
+        public IActionResult Update(ItemDto.Update item)
+        {
+            try
+            {
+                return Ok(_itemService.Update(item));
+            }
+            catch
+            {
+                return BadRequest();
+            }
+        }
     }
 }
