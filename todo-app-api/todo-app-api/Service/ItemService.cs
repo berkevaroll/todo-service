@@ -10,7 +10,7 @@ namespace todo_app_api.Service
     public interface IItemService
     {
         GeneralDto.Response Get();
-        GeneralDto.Response AddItem(ItemDto.Add item);
+        GeneralDto.Response Add(ItemDto.Add item);
     }
     public class ItemService : IItemService
     {
@@ -23,18 +23,18 @@ namespace todo_app_api.Service
         {
             return new GeneralDto.Response { Data = "ECE", Message = "Basarili" };
         }
-        public GeneralDto.Response AddItem(ItemDto.Add item)
+        public GeneralDto.Response Add(ItemDto.Add itemModel)
         {
             try
             {
-                var _item = new Item { Title = item.Title, Description = item.Description, CreatedDate = item.CreatedDate };
-                _context.Item.Add(_item);
+                var item = new Item { Title = itemModel.Title, Description = itemModel.Description, CreatedDate = itemModel.CreatedDate };
+                _context.Item.Add(item);
                 _context.SaveChanges();
                 return new GeneralDto.Response { Message = "Basarili" };
             }
             catch (Exception)
             {
-                return new GeneralDto.Response { Error = true, Message = "Basarili" };
+                return new GeneralDto.Response { Error = true, Message = "Basarisiz" };
             }
         }
     }

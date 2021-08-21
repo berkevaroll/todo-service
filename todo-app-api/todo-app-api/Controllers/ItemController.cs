@@ -38,7 +38,7 @@ namespace todo_app_api.Controllers
         {
             try
             {
-                return Ok(_itemService.AddItem(item));
+                return Ok(_itemService.Add(item));
             }
             catch
             {
