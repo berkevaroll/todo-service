@@ -30,7 +30,12 @@ namespace todo_app_api.Service
         {
             try
             {
-                var item = new Item { Title = itemModel.Title, Description = itemModel.Description, CreatedDate = itemModel.CreatedDate };
+                Item item = new Item 
+                { 
+                    Title = itemModel.Title, 
+                    Description = itemModel.Description, 
+                    CreatedDate = itemModel.CreatedDate 
+                };
                 _context.Item.Add(item);
                 _context.SaveChanges();
                 return new GeneralDto.Response { Message = "Basarili" };
@@ -85,7 +90,7 @@ namespace todo_app_api.Service
         {
             try
             {
-                var itemList = _context.Item
+                List<ItemDto.List> itemList = _context.Item
                     .Where(w => w.Status)
                     .Select(s => new ItemDto.List
                     {
