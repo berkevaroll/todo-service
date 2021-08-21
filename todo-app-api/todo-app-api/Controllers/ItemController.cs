@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using todo_app_api.Dto;
 using todo_app_api.Entity;
 using todo_app_api.Service;
 
@@ -25,6 +26,19 @@ namespace todo_app_api.Controllers
             try
             {
                 return Ok(_itemService.Get());
+            }
+            catch
+            {
+                return BadRequest();
+            }
+        }
+
+        [HttpPost("addItem")]
+        public IActionResult AddItem(ItemDto.Add item)
+        {
+            try
+            {
+                return Ok(_itemService.AddItem(item));
             }
             catch
             {
