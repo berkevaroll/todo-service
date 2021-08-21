@@ -77,8 +77,7 @@ namespace todo_app_api.Service
             }
             catch (Exception)
             {
-
-                throw;
+                return new GeneralDto.Response { Error = true, Message = "Basarisiz" };
             }
         }
     }
