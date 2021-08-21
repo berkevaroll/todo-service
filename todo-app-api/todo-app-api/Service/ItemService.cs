@@ -13,6 +13,7 @@ namespace todo_app_api.Service
         GeneralDto.Response Add(ItemDto.Add item);
         GeneralDto.Response Update(ItemDto.Update item);
         GeneralDto.Response Delete(int id);
+        GeneralDto.Response List();
     }
     public class ItemService : IItemService
     {
@@ -29,7 +30,12 @@ namespace todo_app_api.Service
         {
             try
             {
-                var item = new Item { Title = itemModel.Title, Description = itemModel.Description, CreatedDate = itemModel.CreatedDate };
+                Item item = new Item 
+                { 
+                    Title = itemModel.Title, 
+                    Description = itemModel.Description, 
+                    CreatedDate = itemModel.CreatedDate 
+                };
                 _context.Item.Add(item);
                 _context.SaveChanges();
                 return new GeneralDto.Response { Message = "Basarili" };
@@ -74,6 +80,28 @@ namespace todo_app_api.Service
                 }
 
                 return new GeneralDto.Response { Error = true, Message = "Couldn't find the item" };
+            }
+            catch (Exception)
+            {
+                return new GeneralDto.Response { Error = true, Message = "Basarisiz" };
+            }
+        }
+        public GeneralDto.Response List()
+        {
+            try
+            {
+                List<ItemDto.List> itemList = _context.Item
+                    .Where(w => w.Status)
+                    .Select(s => new ItemDto.List
+                    {
+                        Id = s.Id,
+                        Title = s.Title,
+                        Description = s.Description,
+                        CreatedDate = s.CreatedDate
+                    }
+                ).ToList();
+                
+                return new GeneralDto.Response { Data=itemList, Message = "Basarili"};
             }
             catch (Exception)
             {
