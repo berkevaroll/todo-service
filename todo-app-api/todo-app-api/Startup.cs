@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using todo_app_api.Entity;
+using todo_app_api.Service;
 
 namespace todo_app_api
 {
@@ -29,6 +30,8 @@ namespace todo_app_api
         {
             services.AddControllers();
             services.AddDbContext<todoContext>(options => options.UseSqlServer("Server=.\\SQLExpress;Database=todo;Trusted_Connection=True;"));
+
+            services.AddScoped<IItemService,ItemService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
