@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using todo_app_api.Dto;
 using todo_app_api.Entity;
 using todo_app_api.Service;
 
@@ -51,6 +52,18 @@ namespace todo_app_api.Controllers
             try
             {
                 return Ok(_itemService.Update(item));
+            }
+            catch
+            {
+                return BadRequest();
+            }
+        }
+        [HttpPost("Delete")]
+        public IActionResult Delete([FromBody] int id)
+        {
+            try
+            {
+                return Ok(_itemService.Delete(id));
             }
             catch
             {
