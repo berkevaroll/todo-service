@@ -50,8 +50,10 @@ namespace todo_app_api.Service
                     result.Description = itemModel.Description;
                     result.CreatedDate = itemModel.CreatedDate;
                     _context.SaveChanges();
+                    return new GeneralDto.Response { Message = "Basarili" };
                 }
-                return new GeneralDto.Response { Message = "Basarili" };
+
+                return new GeneralDto.Response { Error = true, Message = "Couldn't find the item" };
             }
             catch (Exception)
             {
