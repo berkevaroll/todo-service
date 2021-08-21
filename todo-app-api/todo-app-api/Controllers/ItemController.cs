@@ -70,5 +70,17 @@ namespace todo_app_api.Controllers
                 return BadRequest();
             }
         }
+        [HttpGet("List")]
+        public IActionResult List()
+        {
+            try
+            {
+                return Ok(_itemService.List());
+            }
+            catch
+            {
+                return BadRequest();
+            }
+        }
     }
 }

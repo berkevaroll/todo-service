@@ -20,5 +20,9 @@ namespace todo_app_api.Dto
             public string Description { get; set; }
             public DateTime CreatedDate { get; set; }
         }
+        public class List : Update
+        {
+
+        }
     }
 }
