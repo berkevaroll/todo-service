@@ -20,6 +20,7 @@ namespace todo_app_api.Entity
         }
 
         public virtual DbSet<Item> Item { get; set; }
+        public virtual DbSet<User> User { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -41,6 +42,21 @@ namespace todo_app_api.Entity
                     .HasMaxLength(300);
 
                 entity.Property(e => e.Title)
+                    .IsRequired()
+                    .HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<User>(entity =>
+            {
+                entity.Property(e => e.Email)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.Password)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.Username)
                     .IsRequired()
                     .HasMaxLength(50);
             });

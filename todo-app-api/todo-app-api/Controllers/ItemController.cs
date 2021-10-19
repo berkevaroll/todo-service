@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace todo_app_api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles ="Admin")]
     public class ItemController : ControllerBase
     {
         IItemService _itemService;
@@ -25,7 +27,7 @@ namespace todo_app_api.Controllers
         {
             try
             {
-                return Ok(_itemService.Get());
+                return Ok(_itemService.Get(User.Identity.Name));
             }
             catch
             {
