@@ -9,7 +9,7 @@ namespace todo_app_api.Service
 {
     public interface IItemService
     {
-        GeneralDto.Response Get();
+        GeneralDto.Response Get(string Name);
         GeneralDto.Response Add(ItemDto.Add item);
         GeneralDto.Response Update(ItemDto.Update item);
         GeneralDto.Response Delete(int id);
@@ -22,9 +22,9 @@ namespace todo_app_api.Service
         {
             _context = context;
         }
-        public GeneralDto.Response Get()
+        public GeneralDto.Response Get(string name)
         {
-            return new GeneralDto.Response { Data = "ECE", Message = "Basarili" };
+            return new GeneralDto.Response { Data = $"Welcome {name}", Message = "Basarili" };
         }
         public GeneralDto.Response Add(ItemDto.Add itemModel)
         {
