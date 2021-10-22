@@ -17,6 +17,7 @@ namespace todo_app_api.Service
     {
         GeneralDto.Response Get();
         GeneralDto.Response Login(UserDto.Login userModel);
+        GeneralDto.Response Register(UserDto.Register userModel);
 
     }
     public class UserService : IUserService
@@ -57,6 +58,32 @@ namespace todo_app_api.Service
                 }
 
                 return new GeneralDto.Response { Error = true, Message = "Login gerceklesemedi" };
+            }
+            catch (Exception)
+            {
+                return new GeneralDto.Response { Error = true, Message = "Basarisiz" };
+            }
+        }
+        public GeneralDto.Response Register(UserDto.Register userModel)
+        {
+            try
+            {
+                User result = _context.User.Where(user => user.Username == userModel.Username || user.Email == userModel.Email).FirstOrDefault();
+                if (result == null)
+                {
+                    User user = new User
+                    {
+                        Username = userModel.Username,
+                        Password = userModel.Password,
+                        Email = userModel.Email,
+                        RoleId = userModel.RoleId
+                    };
+                    _context.User.Add(user);
+                    _context.SaveChanges();
+                    return new GeneralDto.Response { Message = "Basarili" };
+                }
+
+                return new GeneralDto.Response { Error = true, Message = "Username or email is already in use" };
             }
             catch (Exception)
             {

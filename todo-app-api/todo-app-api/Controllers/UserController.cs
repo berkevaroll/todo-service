@@ -44,5 +44,17 @@ namespace todo_app_api.Controllers
                 return BadRequest();
             }
         }
+        [HttpPost("Register")]
+        public IActionResult Register(UserDto.Register register)
+        {
+            try
+            {
+                return Ok(_userService.Register(register));
+            }
+            catch
+            {
+                return BadRequest();
+            }
+        }
     }
 }
