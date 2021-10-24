@@ -44,6 +44,12 @@ namespace todo_app_api.Entity
                 entity.Property(e => e.Title)
                     .IsRequired()
                     .HasMaxLength(50);
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.Item)
+                    .HasForeignKey(d => d.UserId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Item_User");
             });
 
             modelBuilder.Entity<User>(entity =>

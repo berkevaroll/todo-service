@@ -9,10 +9,17 @@ namespace todo_app_api.Entity
 {
     public partial class User
     {
+        public User()
+        {
+            Item = new HashSet<Item>();
+        }
+
         public int Id { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
         public string Email { get; set; }
         public int RoleId { get; set; }
+
+        public virtual ICollection<Item> Item { get; set; }
     }
 }
