@@ -1,35 +1,37 @@
+*.swp
+*.*~
+project.lock.json
+.DS_Store
+*.pyc
+nupkg/
 
-bin
-obj
+# Visual Studio Code
+.vscode
+
+# Rider
+.idea
+
+# User-specific files
 *.suo
-*.pdb
-*.dll
-*.cache
-todo-app-api/.vs/todo-app-api/v16/.suo
-*.dll
-*.pdb
-*.dll
-*.cache
-*.cache
-*.pdb
-*.dll
-*.cache
-todo-app-api/.vs/todo-app-api/v16/.suo
-todo-app-api/todo-app-api/bin/Debug/netcoreapp3.1/appsettings.json
-todo-app-api/todo-app-api/bin/Debug/netcoreapp3.1/todo-app-api.deps.json
-todo-app-api/todo-app-api/bin/Debug/netcoreapp3.1/todo-app-api.dll
-todo-app-api/todo-app-api/bin/Debug/netcoreapp3.1/todo-app-api.pdb
-todo-app-api/todo-app-api/obj/Debug/netcoreapp3.1/todo-app-api.assets.cache
-todo-app-api/todo-app-api/obj/Debug/netcoreapp3.1/todo-app-api.csproj.AssemblyReference.cache
-todo-app-api/todo-app-api/obj/Debug/netcoreapp3.1/todo-app-api.csproj.CoreCompileInputs.cache
-todo-app-api/todo-app-api/obj/Debug/netcoreapp3.1/todo-app-api.csproj.FileListAbsolute.txt
-todo-app-api/todo-app-api/obj/Debug/netcoreapp3.1/todo-app-api.dll
-todo-app-api/todo-app-api/obj/Debug/netcoreapp3.1/todo-app-api.pdb
-todo-app-api/todo-app-api/obj/project.assets.json
-todo-app-api/todo-app-api/obj/project.nuget.cache
-todo-app-api/todo-app-api/obj/todo-app-api.csproj.nuget.dgspec.json
-todo-app-api/todo-app-api/todo-app-api.csproj
-*.cache
-*.cache
-todo-app-api/.vs/todo-app-api/v16/.suo
-*.dll
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+msbuild.log
+msbuild.err
+msbuild.wrn
+
+# Visual Studio 2015
+.vs/
