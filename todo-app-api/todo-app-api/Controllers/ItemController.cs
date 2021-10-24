@@ -40,7 +40,8 @@ namespace todo_app_api.Controllers
         {
             try
             {
-                return Ok(_itemService.Add(item));
+                int userId = Int32.Parse(User.Claims.FirstOrDefault(c => c.Type == "Id").Value);
+                return Ok(_itemService.Add(item, userId));
             }
             catch
             {
@@ -77,7 +78,8 @@ namespace todo_app_api.Controllers
         {
             try
             {
-                return Ok(_itemService.List());
+                int userId = Int32.Parse(User.Claims.FirstOrDefault(c => c.Type == "Id").Value);
+                return Ok(_itemService.List(userId));
             }
             catch
             {

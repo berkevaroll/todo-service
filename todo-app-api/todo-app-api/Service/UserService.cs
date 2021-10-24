@@ -42,6 +42,7 @@ namespace todo_app_api.Service
                 if (result != null)
                 {
                     var claimList = new List<Claim> {
+                        new Claim("Id", result.Id.ToString()),
                         new Claim(ClaimTypes.Name, userModel.Username),
                         new Claim(ClaimTypes.Role, Enum.GetName(typeof(Enums.UserRole), result.RoleId))
                     };

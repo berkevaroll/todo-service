@@ -14,5 +14,8 @@ namespace todo_app_api.Entity
         public string Description { get; set; }
         public DateTime CreatedDate { get; set; }
         public bool Status { get; set; }
+        public int UserId { get; set; }
+
+        public virtual User User { get; set; }
     }
 }
