@@ -10,7 +10,7 @@ namespace todo_app_api.Service
     public interface IItemService
     {
         GeneralDto.Response Get(string Name);
-        GeneralDto.Response Add(ItemDto.Add item, string userId);
+        GeneralDto.Response Add(ItemDto.Add item, int userId);
         GeneralDto.Response Update(ItemDto.Update item);
         GeneralDto.Response Delete(int id);
         GeneralDto.Response List(int userId);
@@ -26,7 +26,7 @@ namespace todo_app_api.Service
         {
             return new GeneralDto.Response { Data = $"Welcome {name}", Message = "Basarili" };
         }
-        public GeneralDto.Response Add(ItemDto.Add itemModel, string userId)
+        public GeneralDto.Response Add(ItemDto.Add itemModel, int userId)
         {
             try
             {
@@ -35,7 +35,7 @@ namespace todo_app_api.Service
                     Title = itemModel.Title,
                     Description = itemModel.Description,
                     CreatedDate = DateTime.Now,
-                    UserId = Int16.Parse(userId),
+                    UserId = userId,
                     Status = true
                 };
                 _context.Item.Add(item);
